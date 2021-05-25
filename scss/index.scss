@@ -15,6 +15,7 @@ body {
   width: 100vw;
   height: 100vh;
   position: relative;
+  overflow-x: hidden;
 
   /* ------------------------------- */
   /* -------- HEADER */
@@ -43,12 +44,17 @@ body {
     #img-div {
       width: 100%;
       height: 100%;
-      margin: 0;
       position: relative;
+      margin: 0;
 
       #image {
-        width: 100%;
-        height: 100%;
+        width: auto;
+        height: auto;
+        min-width: 100%;
+        max-width: 100%;
+        min-height: 100%;
+        max-height: 100%;
+        display: block;
         object-fit: cover;
       }
 
@@ -80,7 +86,7 @@ body {
     padding-bottom: 100px;
 
     #tribute-info {
-      //height: 100%;
+      padding: 0 20px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -104,7 +110,7 @@ body {
         justify-items: center;
 
         .item {
-          width: 280px;
+          width: 100%;
           height: 200px;
           position: relative;
 
@@ -154,14 +160,12 @@ body {
             }
 
             .text {
-              //transform: translateY(-100%);;
               color: white;
               font-size: 13px;
               font-family: $font-two;
               font-weight: 300;
               line-height: 18px;
               text-align: justify;
-              //background: $color-grey-opacity-two;
             }
           }
         }
@@ -204,30 +208,26 @@ body {
 /* ------------------------------- */
 /* -------- @MEDIA */
 /* ------------------------------- */
-@media screen and (min-width: 375px) {
+@media screen and (max-height: 400px) {
   #home {
-    #main {
-      #tribute-info {
-        #list {
-          .item {
-            width: 335px;
-          }
+    #hero {
+      height: 100px;
+      display: flex;
+      align-items: center;
+
+      #title {
+        top: auto;
+      }
+
+      #img-div {
+        #img-caption {
+          top: 70px;
         }
       }
     }
-  }
-}
 
-@media screen and (min-width: 425px) {
-  #home {
     #main {
-      #tribute-info {
-        #list {
-          .item {
-            width: 385px;
-          }
-        }
-      }
+      top: 100px;
     }
   }
 }
@@ -240,7 +240,6 @@ body {
           grid-template-columns: repeat(2, 1fr);
 
           .item {
-            width: 350px;
             height: 300px;
           }
         }
@@ -251,11 +250,12 @@ body {
 
 @media screen and (min-width: 1024px) {
   #home {
-    border: 30px solid black;
+    width: 100vw;
+    height: 100vh;
 
     #hero {
-      width: calc(100% - (30px * 2));
-      height: calc(100% - (30px * 2));
+      width: 100%;
+      height: 100%;
       z-index: 0;
 
       #title {
@@ -264,6 +264,13 @@ body {
       }
 
       #img-div {
+        width: 100%;
+        height: 100%;
+
+        #image {
+          border: 30px solid black;
+        }
+
         #img-caption {
           top: 270px;
           font-size: 26px;
@@ -272,13 +279,14 @@ body {
     }
 
     #main {
-      bottom: 40px;
-      padding: 0 30px;
+      top: auto;
+      bottom: 50px;
+      padding: 0 60px;
 
       #tribute-info {
         position: relative;
-        transform: translateY(60px);
         margin: 0;
+        padding: 0;
         flex-direction: row-reverse;
         justify-content: space-between;
         align-items: flex-end;
@@ -444,8 +452,8 @@ body {
       width: auto;
       height: auto;
       position: absolute;
-      left: 30px;
-      bottom: 40px;
+      left: 60px;
+      bottom: 50px;
       background: none;
       box-shadow: none;
 
